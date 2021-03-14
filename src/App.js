@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+
 import './App.css';
 
 function App() {
+
+  function playsound(){
+    const a= document.createElement('audio');
+    a.src='./bruh_sound_effect.mp3';
+    a.play();
+  }
+  function play(e){
+    playsound();
+   e.target.classList.toggle('down');
+  }
+
+  useEffect(()=>{
+    playsound();
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="centers"> 
+         <div className="mj" id="btn" onClick={play} >Bruh!!!!</div>
     </div>
-  );
-}
+  ) ;
+
+      
+  }
 
 export default App;
